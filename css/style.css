@@ -1,7 +1,9 @@
 .flip-card {
   background-color: cornflowerblue;
   border: 2px solid navy;
+  font-size: 50px;
   height: 100px;
   margin: 25px;
+  padding: 10px 27px;
   width: 100px;
 }
