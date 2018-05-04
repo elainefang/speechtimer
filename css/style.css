@@ -1,9 +1,49 @@
-.flip-card {
-  background-color: cornflowerblue;
-  border: 2px solid navy;
-  font-size: 50px;
-  height: 100px;
-  margin: 25px;
-  padding: 10px 27px;
-  width: 100px;
+.light {
+  background-color: grey;
+  border-radius: 250px;
+  height: 500px;
+  width: 500px;
 }
+
+.time-display {
+  padding-left: 100px;
+  .time-remaining {
+    font-size: 50px;
+  }
+}
+
+.stop-timer {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  width: 102px;
+  height: 100px;
+  background: crimson;
+  position: relative;
+  text-align: center;
+}
+
+.stop-timer:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 29px solid crimson;
+  border-left: 29px solid #fff;
+  border-right: 29px solid #fff;
+  width: 100px;
+  height: 0;
+}
+
+.stop-timer:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 29px solid crimson;
+  border-left: 29px solid #fff;
+  border-right: 29px solid #fff;
+  width: 100px;
+  height: 0;
+}
+
