@@ -7,9 +7,10 @@
 
 .time-display {
   padding-left: 100px;
-  .time-remaining {
-    font-size: 50px;
-  }
+}
+
+.time-remaining {
+  font-size: 50px;
 }
 
 .stop-timer {
