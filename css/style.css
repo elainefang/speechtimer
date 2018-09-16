@@ -1,3 +1,7 @@
+body {
+  background-color: bisque;
+}
+
 .light {
   background-color: grey;
   border-radius: 250px;
