@@ -32,4 +32,6 @@ $(function() {
             $('.time-remaining').html('Time Reached:' + '<br />' + timeRemaining + ' minutes');
         }, milliseconds);
     }
+
+    //TODO: Start timer starts the setTimeout, receives color times
 });
