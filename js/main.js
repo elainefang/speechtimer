@@ -23,6 +23,9 @@ $(function() {
         changeLight('green', greenMilliseconds);
         changeLight('yellow', yellowMilliseconds);
         changeLight('crimson', redMilliseconds);
+
+        // Update timer every second with setInterval
+        // Check time after every second
     }
 
     function changeLight(color, milliseconds) {
@@ -33,5 +36,5 @@ $(function() {
         }, milliseconds);
     }
 
-    //TODO: Start timer starts the setTimeout, receives color times
+    // TODO: Start timer starts the setTimeout, receives color times
 });
