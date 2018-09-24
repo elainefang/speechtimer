@@ -3,8 +3,8 @@ body {
 }
 
 .time-elapsed {
-  /*display: none;*/
   font-size: 75px;
+  visibility: hidden;
 }
 
 .light {
@@ -16,9 +16,27 @@ body {
   width: 500px;
 }
 
-/*.light:hover + .time-elapsed {
-    display: block;
-}*/
+.light:hover .time-elapsed {
+  visibility: visible;
+}
+
+.start-timer {
+  background-color: forestgreen;
+  border-color: black;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  color: white;
+  font-size: 28px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.start-timer:hover {
+  background-color: darkgreen;
+}
 
 .stop-timer, .reset-timer {
   border-color: bisque;

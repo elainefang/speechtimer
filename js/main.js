@@ -6,22 +6,24 @@ $(function() {
     $(document).on('click', '.start-timer', function() {
         $light.css('background-color', 'lightskyblue');
         var buttonClicked = $(this).text();
-        var minutesArray = buttonClicked.split(' ')[0].split('-');
+        var minutesArray = buttonClicked.split(' ');
         var greenSeconds = Number(minutesArray[0])*60;
-        var redSeconds = Number(minutesArray[1])*60;
+        var redSeconds = Number(minutesArray[2])*60;
         var yellowSeconds = (greenSeconds + redSeconds) / 2;
+        $(this).blur();
         $('h1').text('Speech Timer: ' + buttonClicked);
         startTimer(greenSeconds, yellowSeconds, redSeconds);
     });
 
-    // $(window).keypress(function(e) {
-    //     if (e.which === 32) {
-    //         clearInterval(intervalId);
-    //     }
-    // });
+    // Stop timer on spacebar press
+    $(window).keypress(function(e) {
+        if (e.which === 32) {
+            stopTimer();
+        }
+    });
 
     $(document).on('click', '.stop-timer', function() {
-        clearInterval(intervalId);
+        stopTimer();
     });
 
     $(document).on('click', '.reset-timer', function() {
@@ -53,5 +55,10 @@ $(function() {
         date.setSeconds(seconds);
         var timeString = date.toISOString().substr(11, 8);
         $timeDisplay.text(timeString);
+    }
+
+    function stopTimer() {
+        clearInterval(intervalId);
+        $('.time-elapsed').css('visibility', 'visible');
     }
 });
