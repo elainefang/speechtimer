@@ -2,51 +2,54 @@ body {
   background-color: bisque !important;
 }
 
+.time-elapsed {
+  /*display: none;*/
+  font-size: 75px;
+}
+
 .light {
   background-color: grey;
   border-radius: 250px;
   height: 500px;
+  padding-left: 95px;
+  padding-top: 195px;
   width: 500px;
 }
 
-.time-display {
-  padding-left: 100px;
-}
+/*.light:hover + .time-elapsed {
+    display: block;
+}*/
 
-.time-remaining {
-  font-size: 50px;
-}
-
-.reset-timer {
+.stop-timer, .reset-timer {
   border-color: bisque;
   color: white;
   font-size: 25px;
   font-weight: bold;
   width: 102px;
   height: 100px;
-  background: crimson;
+  background: firebrick;
   position: relative;
   text-align: center;
 }
 
-.reset-timer:before {
+.stop-timer:before, .reset-timer:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  border-bottom: 29px solid crimson;
+  border-bottom: 29px solid firebrick;
   border-left: 29px solid bisque;
   border-right: 29px solid bisque;
   width: 100px;
   height: 0;
 }
 
-.reset-timer:after {
+.stop-timer:after, .reset-timer:after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  border-top: 29px solid crimson;
+  border-top: 29px solid firebrick;
   border-left: 29px solid bisque;
   border-right: 29px solid bisque;
   width: 100px;

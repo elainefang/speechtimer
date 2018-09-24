@@ -1,5 +1,7 @@
 $(function() {
     var $light = $('.light');
+    var $timeDisplay = $('.time-elapsed');
+    var intervalId = '';
 
     $(document).on('click', '.start-timer', function() {
         $light.css('background-color', 'lightskyblue');
@@ -12,19 +14,30 @@ $(function() {
         startTimer(greenSeconds, yellowSeconds, redSeconds);
     });
 
+    // $(window).keypress(function(e) {
+    //     if (e.which === 32) {
+    //         clearInterval(intervalId);
+    //     }
+    // });
+
+    $(document).on('click', '.stop-timer', function() {
+        clearInterval(intervalId);
+    });
+
     $(document).on('click', '.reset-timer', function() {
         location.reload();
     });
 
     function startTimer(greenSeconds, yellowSeconds, redSeconds) {
-        greenSeconds = 2;
-        yellowSeconds = 4;
-        redSeconds = 6;
+        // greenSeconds = 2;
+        // yellowSeconds = 4;
+        // redSeconds = 6;
 
         var seconds = 0;
 
-        setInterval(function() {
+        intervalId = setInterval(function() {
             seconds += 1;
+            updateDisplay(seconds);
             if (seconds == greenSeconds) {
                 $light.css('background-color', 'green');
             } else if (seconds == yellowSeconds) {
@@ -33,5 +46,12 @@ $(function() {
                 $light.css('background-color', 'crimson');
             }
         }, 1000);
+    }
+
+    function updateDisplay(seconds) {
+        var date = new Date(null);
+        date.setSeconds(seconds);
+        var timeString = date.toISOString().substr(11, 8);
+        $timeDisplay.text(timeString);
     }
 });
