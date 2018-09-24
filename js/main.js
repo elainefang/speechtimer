@@ -3,38 +3,35 @@ $(function() {
 
     $(document).on('click', '.start-timer', function() {
         $light.css('background-color', 'lightskyblue');
-        var buttonClicked = $(this).text()
+        var buttonClicked = $(this).text();
         var minutesArray = buttonClicked.split(' ')[0].split('-');
-        var greenMs = Number(minutesArray[0])*60*1000;
-        var redMs = Number(minutesArray[1])*60*1000;
-        var yellowMs = (greenMs + redMs) / 2;
+        var greenSeconds = Number(minutesArray[0])*60;
+        var redSeconds = Number(minutesArray[1])*60;
+        var yellowSeconds = (greenSeconds + redSeconds) / 2;
         $('h1').text('Speech Timer: ' + buttonClicked);
-        startTimer(greenMs, yellowMs, redMs);
+        startTimer(greenSeconds, yellowSeconds, redSeconds);
     });
 
-    $(document).on('click', '.stop-timer', function() {
+    $(document).on('click', '.reset-timer', function() {
         location.reload();
     });
 
-    function startTimer(greenMilliseconds, yellowMilliseconds, redMilliseconds) {
-        // greenMilliseconds = 2000;
-        // yellowMilliseconds = 4000;
-        // redMilliseconds = 6000;
-        changeLight('green', greenMilliseconds);
-        changeLight('yellow', yellowMilliseconds);
-        changeLight('crimson', redMilliseconds);
+    function startTimer(greenSeconds, yellowSeconds, redSeconds) {
+        greenSeconds = 2;
+        yellowSeconds = 4;
+        redSeconds = 6;
 
-        // Update timer every second with setInterval
-        // Check time after every second
+        var seconds = 0;
+
+        setInterval(function() {
+            seconds += 1;
+            if (seconds == greenSeconds) {
+                $light.css('background-color', 'green');
+            } else if (seconds == yellowSeconds) {
+                $light.css('background-color', 'yellow');
+            } else if (seconds == redSeconds) {
+                $light.css('background-color', 'crimson');
+            }
+        }, 1000);
     }
-
-    function changeLight(color, milliseconds) {
-        setTimeout(function() {
-            $light.css('background-color', color);
-            var timeRemaining = (milliseconds / 60000).toFixed(1);
-            $('.time-remaining').html('Time Reached:' + '<br />' + timeRemaining + ' minutes');
-        }, milliseconds);
-    }
-
-    // TODO: Start timer starts the setTimeout, receives color times
 });
